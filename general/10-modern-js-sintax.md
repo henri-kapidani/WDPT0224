@@ -21,10 +21,10 @@ export function foo() {.........}
 
 export function myFunc() {........}
 
-export const greet() => {.........}
+export const greet = () => {.........}
 ```
 
-Così facendo potete decidere cosa importare in questo modo:
+Così facendo potete decidere cosa importare, in questo modo:
 
 ```javascript
 import { foo, greet } from './percorso/file/da/importare';
@@ -44,7 +44,7 @@ const myArr = [1, 2, 3, 4];
 const myArr2 = [...myArr, 5];
 ```
 
-`myArr2` ora contiene `[1, 2, 3, 4, 5]`
+`myArr2` ora contiene l'array `[1, 2, 3, 4, 5]`
 
 ## Destructoring
 
