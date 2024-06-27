@@ -1,3 +1,4 @@
+import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 
 // modo alternativo equivalente per dichiarare un componente
@@ -33,7 +34,8 @@ function Counter() {
 
             <div>{counter}</div>
             <button onClick={increment}>Incrementa</button>
-            <button
+            <Button
+                variant="danger"
                 onClick={() => {
                     // funzione troppo lunga meglio dichiararla a parte come fatto con increment
                     setIsLoaded(!isLoaded);
@@ -41,7 +43,7 @@ function Counter() {
                 }}
             >
                 {isLoaded ? 'Scarica' : 'Carica'}
-            </button>
+            </Button>
         </>
     );
 }
