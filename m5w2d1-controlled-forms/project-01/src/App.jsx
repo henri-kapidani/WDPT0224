@@ -11,7 +11,7 @@ function App() {
         <div>
             <NavTop />
             <Container>
-                <Row className="g-3">
+                <Row>
                     <Main />
                     {/* <MainObj /> */}
                     <Sidebar />

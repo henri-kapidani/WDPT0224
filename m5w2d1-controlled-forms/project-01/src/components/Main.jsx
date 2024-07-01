@@ -24,13 +24,15 @@ function Main() {
     const addPost = (event) => {
         event.preventDefault();
 
+        // TODO: se il form è vuoto NON aggiungere il post
+
         // creare l'oggeto del post nuovo
         const newPost = {
             id: Math.floor(Math.random() * 99999),
-            title, // title: title
-            author,
-            img,
-            excerpt,
+            title, // equivale a scrivere title: title
+            author, // equivale a scrivere author: author
+            img, // equivale a scrivere img: img
+            excerpt, // equivale a scrivere excerpt: excerpt
         };
 
         // aggiornare lo stato con l'array dei post
@@ -41,11 +43,12 @@ function Main() {
     };
 
     return (
-        <Col xs={12} md={10}>
+        <Col xs={12} md={9}>
             <main className="py-4">
-                <Form onSubmit={addPost}>
+                <Form onSubmit={addPost} className="mb-3">
+                    {/* preferire l'onSubmit sul form all'onClick sul bottone perchè l'onSubmit si attiva sia al click del bottone che al tasto invio su un input */}
                     <Form.Group className="mb-3">
-                        <Form.Label>Title</Form.Label>
+                        <Form.Label>Titolo</Form.Label>
                         <Form.Control
                             placeholder="Il mio bel titolo"
                             onChange={(event) => setTitle(event.target.value)}
@@ -54,7 +57,7 @@ function Main() {
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                        <Form.Label>Author</Form.Label>
+                        <Form.Label>Autore</Form.Label>
                         <Form.Control
                             placeholder="Pinco Pallino"
                             onChange={(event) => setAuthor(event.target.value)}
@@ -63,7 +66,7 @@ function Main() {
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                        <Form.Label>Image</Form.Label>
+                        <Form.Label>Immagine</Form.Label>
                         <Form.Control
                             placeholder="myimg.jpg"
                             onChange={(event) => setImg(event.target.value)}
@@ -72,7 +75,7 @@ function Main() {
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                        <Form.Label>Excerpt</Form.Label>
+                        <Form.Label>Descrizione</Form.Label>
                         <Form.Control
                             placeholder="Testo testo testo"
                             onChange={(event) => setExcerpt(event.target.value)}
@@ -80,15 +83,18 @@ function Main() {
                         />
                     </Form.Group>
 
-                    <Button type="submit">Aggiungi</Button>
-                    <Button type="button" onClick={clearForm}>
-                        Clear
+                    <Button type="submit" className="me-2">
+                        Aggiungi
+                    </Button>
+                    <Button type="button" variant="warning" onClick={clearForm}>
+                        Resetta
                     </Button>
                 </Form>
 
-                <Row>
+                <Row className="g-3">
                     {posts.map((post) => (
-                        <Col xs={12} sm={6} md={4} key={post.id}>
+                        // questa col potrebbe essere spostata su un componente a parte
+                        <Col xs={12} sm={6} lg={4} key={post.id}>
                             <Card className="h-100">
                                 {post.img && (
                                     <Card.Img
@@ -99,11 +105,13 @@ function Main() {
                                 <Card.Body>
                                     <Card.Title>{post.title}</Card.Title>
                                     <h6>
-                                        Author:{' '}
+                                        Autore:{' '}
                                         {post.author ? post.author : 'Guest'}
                                     </h6>
                                     <Card.Text>{post.excerpt}</Card.Text>
-                                    <Button variant="primary">Read more</Button>
+                                    <Button variant="primary">
+                                        Leggi tutto
+                                    </Button>
                                 </Card.Body>
                             </Card>
                         </Col>
@@ -123,7 +131,6 @@ true false -> false
 false true -> false
 false false -> false
 
-5 && 'ciao'
-true && true
-true -> 'ciao'
+5 && 'ciao' -> true && true -> true
+ma javascript non ti restituisce true ma l'ultimo valore valutato, cioè 'ciao'
 */

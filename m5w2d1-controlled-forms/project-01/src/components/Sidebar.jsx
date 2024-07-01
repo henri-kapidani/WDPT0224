@@ -2,7 +2,7 @@ import Col from 'react-bootstrap/Col';
 
 function Sidebar() {
     return (
-        <Col xs={12} md={2} className="bg-warning">
+        <Col xs={12} md={3} className="bg-warning">
             <aside className="p-3">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui
                 reprehenderit temporibus sapiente unde assumenda deleniti
