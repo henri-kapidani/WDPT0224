@@ -4,6 +4,8 @@ Potete importate in un file js codice presente in un altro file usando l'`import
 
 ```js
 import foo from './percorso/file/da/importare';
+
+// ora posso usare foo
 ```
 
 è necessario però che cio' che state importando sia stato esportato dal file originale:
@@ -25,10 +27,12 @@ export function myFunc() {........}
 export const greet = () => {.........}
 ```
 
-Così facendo potete decidere cosa importare usando lo stesso nome con cui sono state definite (potete cambiare il nome usando `as`), in questo modo:
+Così facendo potete decidere cosa importare usando lo stesso nome con cui sono state definite (potete cambiare il nome usando `as`), in questo modo (**_notare la necessià delle parentesi graffe in questo caso_**):
 
 ```js
 import { foo, greet as saluto } from './percorso/file/da/importare';
+
+// ora posso usare foo e saluto (NON greet perchè è stato rinominato in saluto)
 ```
 
 ## Spread operator
@@ -115,9 +119,9 @@ const { firstName, lastName, age } = objPerson;
 equivale a scrivere:
 
 ```js
-const firstName = objPerson.firstName;
-const lastName = objPerson.lastName;
-const age = objPerson.age;
+const firstName = objPerson.firstName; // 'Pinco'
+const lastName = objPerson.lastName; // 'Pallino'
+const age = objPerson.age; // 30
 ```
 
 Una cosa simile si può fare con gli array, considerando arrPerson questo array:
@@ -135,7 +139,11 @@ const [firstName, lastName, age] = arrPerson;
 equivale a scrivere:
 
 ```js
-const firstName = arrPerson[0];
-const lastName = arrPerson[1];
-const age = arrPerson[2];
+const firstName = arrPerson[0]; // 'Pinco'
+const lastName = arrPerson[1]; // 'Pallino'
+const age = arrPerson[2]; // 30
 ```
+
+## Objects
+
+## Arrow functions
