@@ -17,7 +17,7 @@ export default foo;
 ```
 
 con `export default` potete esportare una sola cosa alla quale potete dare il nome che volete quando la importate (in questo caso potevate importare foo come altroNome `import altroNome from './percorso/file/da/importare';`).
-Potete esportare più cose dallo stesso file usando `export` da solo (senza il default):
+Potete esportare più cose dallo stesso file usando `export` da solo (senza il `default`):
 
 ```js
 export function foo() {.........}
