@@ -12,7 +12,8 @@ function MainButton() {
     const [errorMessage, setErrorMessage] = useState('');
     const [searchString, setSearchString] = useState('');
 
-    const searchCharacter = async () => {
+    // TECNICA DELL'async/await
+    const searchCharacterAsyncAwait = async () => {
         try {
             setIsloading(true);
             const response = await fetch(
@@ -35,11 +36,26 @@ function MainButton() {
         // perchè senza graffe si attiva il return implicito delle arrow functions
         // e useEffect accetta solo funzioni (la clean-up function) come valore di return
         // altri valori di return generano un errore
-        searchCharacter();
+        searchCharacterAsyncAwait();
     }, [searchString]);
     // senza secondo argomento esegue la callback ad ogni rendering
     // secondo argomento []: esegue la callaback solo al primo montaggio del componente
-    // secondo argomento [var1, var2]: esegeue la callback al cambiamento di una qualsiasi delle variabili nell'array
+    // secondo argomento [var1, var2]: esegue la callback al cambiamento di una qualsiasi delle variabili nell'array
+
+    // TECNICA DEL .then
+    const searchCharacterThen = () => {
+        setIsloading(true);
+        fetch(`https://rickandmortyapi.com/api/character/?name=${searchString}`)
+            .then((response) => {
+                if (!response.ok) throw new Error('era una 404');
+                return response.json();
+            })
+            .then((data) => setCharacters(data.results))
+            .catch((error) => setErrorMessage(error.message))
+            .finally(() => setIsloading(false));
+    };
+
+    // useEffect(searchCharacterThen, [searchString]);
 
     return (
         <main className="py-4">
