@@ -12,24 +12,6 @@ function MainButton() {
     const [errorMessage, setErrorMessage] = useState('');
     const [searchString, setSearchString] = useState('');
 
-    // const loadPosts = () => {
-    //     setIsloading(true);
-    //     fetch('https://jsonplaceholder.typicode.com/posts')
-    //         .then((response) => {
-    //             if (!response.ok) throw new Error('era una 404');
-
-    //             return response.json();
-    //         })
-    //         .then((data) => setPosts(data))
-    //         .catch((error) => setErrorMessage(error.message))
-    //         .finally(() => setIsloading(false));
-    // };
-
-    // useEffect(loadPosts, []);
-    // senza secondo argomento esegue la callback ad ogni rendering
-    // secondo argomento []: esegue la callaback solo al primo montaggio del componente
-    // secondo argomento [var1, var2]: esegeue la callback al cambiamento di una qualsiasi delle variabili nell'array
-
     const searchCharacter = async () => {
         try {
             setIsloading(true);
@@ -46,10 +28,18 @@ function MainButton() {
         }
     };
 
-    // useEffect vuole una collback sincrona
+    // useEffect vuole una collback sincrona, ecco perchè qui dobbiamo mettere
+    // la funzione asincrona che abbiamo creato dentro un'altra funzione sincrona
     useEffect(() => {
+        // ATTENZIONE: qui le graffe ci vogliono
+        // perchè senza graffe si attiva il return implicito delle arrow functions
+        // e useEffect accetta solo funzioni (la clean-up function) come valore di return
+        // altri valori di return generano un errore
         searchCharacter();
     }, [searchString]);
+    // senza secondo argomento esegue la callback ad ogni rendering
+    // secondo argomento []: esegue la callaback solo al primo montaggio del componente
+    // secondo argomento [var1, var2]: esegeue la callback al cambiamento di una qualsiasi delle variabili nell'array
 
     return (
         <main className="py-4">
@@ -63,10 +53,11 @@ function MainButton() {
                 />
             </Form.Group>
 
-            {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
-
             <h1>Rick and Morty Characters</h1>
 
+            {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
+
+            {/* se il caricamento è troppo veloce e non si vede lo spinner, dal Network tab dell'inspector potete attivare lo Slow 3G */}
             {isLoading ? (
                 <Spinner animation="border" role="status">
                     <span className="visually-hidden">Loading...</span>
