@@ -23,6 +23,8 @@ function MainButton() {
             .finally(() => setIsloading(false));
     };
 
+    // TODO: convert to async/await
+
     return (
         <main className="py-4">
             <Button variant="primary" onClick={loadPosts}>
