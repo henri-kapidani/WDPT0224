@@ -1,38 +1,39 @@
 // import Container from 'react-bootstrap/Container';
 // import Row from 'react-bootstrap/Row';
 // import Col from 'react-bootstrap/Col';
+import { CounterContext, UserContext } from './components/Context';
+import Dashboard from './components/Dashboard';
 import Display from './components/Display';
-import Controls from './components/Controls';
 import { useState } from 'react';
 
 function App() {
-    const [counter, setCounter] = useState(0);
-
-    // METODO 2
-    // function increment() {
-    //     setCounter(counter + 1);
-    // }
-
-    // function decrement() {
-    //     setCounter(counter - 1);
-    // }
-
-    // METODO 3
-    function change(delta) {
-        setCounter(counter + delta);
-    }
+    const [counter, setCounter] = useState(100);
+    const [user, setUser] = useState({
+        userName: 'Pinco',
+        email: 'asdf@asdf.asdf',
+    });
 
     return (
+        // CON IL PROPS DRILLING
+        // <div>
+        //     <Display counter={counter} />
+        //     <Dashboard counter={counter} setCounter={setCounter} />
+        // </div>
+
+        // CON IL CONTEXT
         <div>
-            <Display counter={counter} />
-            {/* METODO 1 */}
-            {/* <Controls counter={counter} setCounter={setCounter} /> */}
+            {/* parte provider del contesto */}
+            <CounterContext.Provider value={[counter, setCounter]}>
+                <UserContext.Provider value={{ user: user, counter: counter }}>
+                    <Display />
+                    <Dashboard />
+                </UserContext.Provider>
+            </CounterContext.Provider>
 
-            {/* METODO 2 */}
-            {/* <Controls increment={increment} decrement={decrement} /> */}
-
-            {/* METODO 3 */}
-            <Controls change={change} />
+            {/* <GreetContext.Provider value={[counter, setCounter]}>
+                <Main></Main>
+                <Footer></Footer>
+            </GreetContext.Provider> */}
         </div>
     );
 }
