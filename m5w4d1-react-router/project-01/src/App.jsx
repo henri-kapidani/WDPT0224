@@ -3,7 +3,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import Header from './components/Header';
+import HeaderSimple from './components/HeaderSimple';
+import HeaderBootstrap from './components/HeaderBootstrap';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -16,7 +17,8 @@ import NotFound from './pages/NotFound';
 function App() {
     return (
         <BrowserRouter>
-            <Header />
+            {/* <HeaderSimple /> */}
+            <HeaderBootstrap />
             <Container>
                 <Row>
                     <Col xs={12} md={10}>

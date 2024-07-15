@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function Header() {
+function HeaderSimple() {
     return (
         <header>
             <ul>
@@ -25,4 +25,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default HeaderSimple;
