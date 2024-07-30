@@ -73,111 +73,159 @@ Questa è una lista di librerie molto usate:
 <tbody>
 <tr>
 <td>
+
 `express`
+
 </td>
 <td>
+
 permette di creare un web server capace di rispondere alle richieste HTTP
+
 </td>
 </tr>
 
 <tr>
 <td>
+
 `mongoose`
+
 </td>
 <td>
+
 permette di connettersi e lavorare con il database `MongoDB`
+
 </td>
 </tr>
 
 <tr>
 <td>
+
 `dotenv`
+
 </td>
 <td>
+
 legge i valori presenti nel file `.env`, che possono poi essere recuperati nel codice da `process.env.NOME_CHIAVE`
+
 </td>
 </tr>
 
 <tr>
 <td>
+
 `cors`
+
 </td>
 <td>
+
 permette di gestire l'accesso agli endpoints del server da parte del frontend e risolvere i prblemi di CORS
+
 </td>
 </tr>
 
 <tr>
 <td>
+
 `helmet`
+
 </td>
 <td>
+
 setta alcuni header nelle risposte HTTP in maniera da rendere il server più sicuro
+
 </td>
 </tr>
 
 <tr>
 <td>
+
 `morgan`
+
 </td>
 <td>
+
 è un logger che permette di visualizzare cosa avviene nel server con diversi livelli di dettaglio
+
 </td>
 </tr>
 
 <tr>
 <td>
+
 `http-errors`
+
 </td>
 <td>
+
 permette di generare in maniera semplice e standardizzata risposte HTTP con un codice di errore (4xx e 5xx)
+
 </td>
 </tr>
 
 <tr>
 <td>
+
 `nodemailer`
+
 </td>
 <td>
+
 permette di inviare emails
+
 </td>
 </tr>
 
 <tr>
 <td>
+
 `multer`
+
 </td>
 <td>
+
 permette di caricare files sul server
+
 </td>
 </tr>
 
 <tr>
 <td>
+
 `nodemon`
+
 </td>
 <td>
+
 fa il watch dei file e riavvia il server automaticamente dopo qualsiasi modifica
+
 </td>
 </tr>
 
 <tr>
 <td>
+
 `swagger-ui-express`
 <br>
 `swagger-autogen`
+
 </td>
 <td>
-permettono di creare la documentazione [swagger](https://swagger.io/) dell'api 
+
+permettono di creare la documentazione [swagger](https://swagger.io/) dell'api
+
 </td>
 </tr>
 
 <tr>
 <td>
-express-list-endpoints
+
+`express-list-endpoints`
+
 </td>
 <td>
+
 crea una tabella in console con la lista di tutti gli endpoints della nosta api
+
 </td>
 </tr>
 
