@@ -61,6 +61,8 @@ npm i express mongoose dotenv
 npm i -D nodemon
 ```
 
+_Ricordate che il flag `-D` significa che la libreria verrà installata come `devDependency` ciò una libreria che serve solo durante lo sviluppo ma non in produzione (in genere è una buona pratica installare questo tipo di librerie come `devDependencies` ma non è una cosa grave non farlo)._
+
 Questa è una lista di librerie molto usate:
 
 <table>
@@ -285,4 +287,4 @@ Per testare gli endpoints creati può essere utile usare strumenti come:
 -   [Insomnia](https://insomnia.rest/)
 -   [Hoppscotch](https://hoppscotch.io/)
 -   Thunder Client (estensione per VS Code)
--   Rest Client (estensione per VS Code) e permette di salvare le richieste in file con estensione `.http`
+-   Rest Client (estensione per VS Code) che permette di salvare le richieste in file con estensione `.http`
