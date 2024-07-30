@@ -13,7 +13,7 @@ Il flag `-y` server a rispondere con il default a tutte le domande, così il com
 
 ## Attivare la sintassi moderna degli `import`
 
-Aprire `package.json` e aggiungere `"type": "module",`, non importa dove ma in genere si mette nella parte alta del json, magari sotto la chiave `main`. Senza l'indicazione del `type` il default per l'importazione di moduli è il `require`.
+Aprite `package.json` e aggiungete `"type": "module",`, non importa dove ma in genere si mette nella parte alta del json, magari sotto la chiave `main`. Il default per l'importazione di moduli (quindi senza l'indicazione del `type`) è il `require`.
 
 ## Creare i file base
 
