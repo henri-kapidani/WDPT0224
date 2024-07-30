@@ -33,7 +33,7 @@ node_modules
 .env
 ```
 
-`node_modules` non va pushato perchè contiene le librerie e può essere sempre rigenerato a partire da un `package.json` valido con il comando `npm install`.
+`node_modules` non va pushato perchè contiene le librerie e può essere sempre rigenerato a partire da un `package.json` valido con il comando `npm install` oppure `npm i`.
 Il file `.env` non va pushato perchè contiene impostazioni e dati sensibili, al suo posto viene invece pushato il file `.env.example` che contiene solo la struttura del file. Un altro developer che clona il nostro progetto farà la copia di `.env.example` rinominandolo in `.env` e popolando le chiavi con i suoi valori e le sue password.
 
 **_MANTENETE SEMPRE SINCRONIZZATI I DUE FILE, SE AGGIUNGETE UNA CHIAVE IN `.env` RICORDATEVI DI AGGIUNGERLA ANCHE NEL FILE `.env.example` (CON UN VALORE FINTO NATURALMENTE)._**
