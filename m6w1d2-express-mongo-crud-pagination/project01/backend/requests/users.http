@@ -1,0 +1,33 @@
+@baseUrl=http://localhost:5000
+@userId=66abf1c354d2e4066e219cc8
+
+GET {{baseUrl}}/users
+
+###
+GET {{baseUrl}}/users?page=2&perPage=5
+
+###
+GET {{baseUrl}}/users/{{userId}}
+
+###
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+    "name": "Pinco",
+    "email": "6@asdf.asdf",
+    "age": 30,
+    "role": "Admin",
+    "approved": true
+}
+
+###
+PUT {{baseUrl}}/users/{{userId}}
+Content-Type: application/json
+
+{
+    "name": "Joe"
+}
+
+###
+DELETE {{baseUrl}}/users/{{userId}}
