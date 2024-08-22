@@ -1,0 +1,12 @@
+@host=http://localhost:5000
+
+GET {{host}}/recipes/
+Authorization: Bearer token_valido
+
+###
+GET {{host}}/recipes/a
+Authorization: Bearer token_validdo
+
+###
+GET {{host}}/recipes/b
+Authorization: Bearer token_valido
