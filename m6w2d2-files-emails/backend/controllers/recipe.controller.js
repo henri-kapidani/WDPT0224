@@ -37,7 +37,7 @@ export const sendMailMiddleware = async (req, res) => {
     // rispondere con successo oppure errore
     try {
         const email = await transport.sendMail({
-            from: '<noreply@epicoders.com>', // sender address
+            from: 'noreply@epicoders.com', // sender address
             to: req.body.email, // list of receivers
             subject: 'Benvenuto', // Subject line
             text: `Benvenuto ${req.body.fullName}`, // plain text body
