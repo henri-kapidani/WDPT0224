@@ -1,0 +1,123 @@
+@host=http://localhost:5000/api/v1
+@jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQwYmJkNGQ0YjgxMjI2ZWFiYjE1ZmEiLCJpYXQiOjE3MjQ5NjYzNzMsImV4cCI6MTcyNDk2OTk3M30.F0834thYXNJ8QHeqcl3qM4UBY5CpL_HJNNuI-4dUUHU
+
+# 404
+
+###
+GET {{host}}/asdfasdf
+
+# RECIPES
+
+###
+GET {{host}}
+Authorization: Bearer {{jwt}}
+
+###
+GET {{host}}/recipes
+Authorization: Bearer {{jwt}}
+
+###
+POST {{host}}/recipes
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+    "title": "Torta embeddata",
+    "author": {
+        "name": "Pinco",
+        "email": "qwer@qwer.qwer"
+    },
+    "cookingTime": 5,
+    "ingredients": [
+        {
+            "name": "farina",
+            "quantity": 100,
+            "unit": "grammi"
+        },
+        {
+            "name": "uova",
+            "quantity": 2,
+            "unit": "unità"
+        },
+        {
+            "name": "burro",
+            "quantity": 50,
+            "unit": "grammi"
+        }
+    ]
+}
+
+# COMMENTS
+
+###
+GET {{host}}/recipes/66c7952400aa98229f399d2c/comments
+Authorization: Bearer {{jwt}}
+
+###
+POST {{host}}/recipes/66c7952400aa98229f399d2c/comments
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+    "content": "Stiamo referenziando"
+}
+
+# INGREDIENTS
+
+###
+GET {{host}}/recipes/66ccd2d8eba52e1a0b9bf9ee/ingredients
+Authorization: Bearer {{jwt}}
+
+###
+GET {{host}}/recipes/66ccd2d8eba52e1a0b9bf9ee/ingredients/66ccd2d8eba52e1a0b9bf9f0
+Authorization: Bearer {{jwt}}
+
+###
+POST {{host}}/recipes/66ccd2d8eba52e1a0b9bf9ee/ingredients
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+    "name": "zucchero",
+    "quantity": 70,
+    "unit": "grammi"
+}
+
+###
+PUT {{host}}/recipes/66ccd2d8eba52e1a0b9bf9ee/ingredients/66cce58f5427c5b38488e1b6r
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
+
+{
+    "quantity": 80
+}
+
+###
+DELETE {{host}}/recipes/66ccd2d8eba52e1a0b9bf9ee/ingredients/66cce58f5427c5b38488e1b6r
+Authorization: Bearer {{jwt}}
+
+# AUTHENTICATION
+
+###
+POST {{host}}/register
+Content-Type: application/json
+
+{
+    "name": "Pallino",
+    "email": "pallino@asdf.asdf",
+    "password": "asdf"
+}
+
+###
+POST {{host}}/login
+Content-Type: application/json
+
+{
+    "email": "pallino@asdf.asdf",
+    "password": "asdf"
+}
+
+###
+GET {{host}}/me
+Authorization: Bearer {{jwt}}
+Content-Type: application/json
